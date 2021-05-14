@@ -92,8 +92,9 @@ allprojects {
 	apply plugin: "fabric-loom"
 	apply plugin: "org.cadixdev.licenser"
 
-	tasks.withType(JavaCompile).configureEach {
-		it.options.release = 16
+	tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
 	}
 
 	group = "net.fabricmc.fabric-api"
